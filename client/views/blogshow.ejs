@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <link rel='stylesheet' href="../css/styles.css">
+</head>
+<body>
+  <div class='container'>
+    <div >
+      <h1><%= blog.headingOfBlog %></h1>
+      <p><%= blog.contentOfBlog %></p>
+      <div style='display:flex;'>
+        <div>
+        <form action=<%= '/upvote?blogId='+ blog.id %> method='post'>
+          <label name='totalLikes' ><%= upvoteCounts %></label>
+          <button class="<%= upvoteStatus %>" type='submit' name='blogId' value=<%= blog.id %>>upvote</button>
+        </form>
+        </div>
+        <div>
+           <form action=<%= '/downvote?blogId='+blog.id %> method='post'>
+            <label name='totalDislikes' ><%= downvoteCounts %></label>
+            <button  type='submit' name='blogId' value=<%= blog.id %> class="<%= downvoteStatus %>">downvote</button>
+           </form>
+        </div>
+        <div>
+          <form action=<%= '/comment?blogId='+blog.id %> method='post'>
+            <textarea name='usercomment' placeholder='comment' required rows=1></textarea>
+            <label name='totalComments'><%= comments.length %></label>
+            <button type='submit' name='blogId' value=<%= blog.id %>>Comment</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class='comments'>
+      <h2>Comments</h2>
+      <% for(var i=0;i<comments.length;i++) { %>
+        <div>
+          <h5 style='display:inline;'><%= comments[i].username %></h5>
+          <p sytyle='display:inline;'><%= comments[i].comment %></p>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>

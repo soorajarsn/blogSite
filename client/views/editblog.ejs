@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+  <div>
+    <form method='post' action="<% '/editblog/?editBlogId='+id %>">
+      <input type='text' name='editBlogId' value=<%= id %>>
+      <input type='text' name='heading' value="<%= heading %>" style='width:100%;height:1.2rem;' required autofocus >
+      <textarea name='content'style='width:100%;' rows=10>
+        <%= content %>
+      </textarea>
+      <button type='submit'>Update Blog</button>
+    </form>
+  </div>
+</body>
+</html>

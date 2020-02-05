@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+  <div>
+    <div>
+      <div>
+        <h1>Hello <%= username %></h1>
+      </div>
+      <!-- <div>
+        <a href='/blog'><button type=button>Create Blog</button></a>
+        <a href='/profile'><button type=button>Profile Page</button></a>
+        <a href='/logout'><button type=button>logout</button></a>
+      </div> -->
+    </div>
+    <div>
+      <% for(var i=0;i<blogs.length;i++) { %>
+        <a href=<%= '/blogshow?id='+blogs[i].id %>><div>
+          <h2><%= blogs[i].headingOfBlog %></h2>
+        </div></a>
+      <% } %>
+    </div>
+  </div>
+
+<%- include('partials/footer') %>

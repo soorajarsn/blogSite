@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+  <div>
+    <div>
+      <h1>Hello <%= username %></h1>
+    </div>
+    <div>
+      <a href='/homepage'><button>Home Page</button></a>
+      <a href="/logout"><button>Log out</button></a>
+    </div>
+  </div>
+  <% for(var i=0;i<blogs.length;i++) { %>
+    <div>
+      <h2><%= blogs[i].headingOfBlog %>
+      <p><%= blogs[i].contentOfBlog %>
+      <form action='/editblog'>
+        <button type='submit' name='editBlogId' value=<%= blogs[i].id %>>Edit</button>
+      </form>
+      <form action='/removeblog'>
+        <button type='submit' name='deleteBlogId' value=<%= blogs[i].id %>>Remove</button>
+      </form>
+    </div>
+  <% } %>
+</body>
+</html>
